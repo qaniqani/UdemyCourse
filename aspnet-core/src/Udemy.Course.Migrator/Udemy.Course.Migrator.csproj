@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <AssetTargetFallback>$(AssetTargetFallback);portable-net45+win8+wp8+wpa81;</AssetTargetFallback>
+    <AssemblyName>Udemy.Course.Migrator</AssemblyName>
+    <OutputType>Exe</OutputType>
+    <PackageId>Udemy.Course.Migrator</PackageId>
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Update="appsettings.json;log4net.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Abp.Castle.Log4Net" Version="7.1.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Udemy.Course.Core\Udemy.Course.Core.csproj" />
+    <ProjectReference Include="..\Udemy.Course.EntityFrameworkCore\Udemy.Course.EntityFrameworkCore.csproj" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,34 @@
+﻿@using Udemy.Course.Web.Models.Common.Modals
+@{
+    Layout = null;
+}
+<div class="modal fade" id="CustomerCreateModal" tabindex="-1" role="dialog" aria-labelledby="CustomerCreateModalLabel" data-backdrop="static">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            @await Html.PartialAsync("~/Views/Shared/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(L("CreateNewCustomer")))
+            <form name="customerCreateForm" role="form" class="form-horizontal">
+                <div class="modal-body">
+                    <div class="form-group row required">
+                        <label class="col-md-3 col-form-label" for="name">@L("Name")</label>
+                        <div class="col-md-9">
+                            <input id="name" type="text" name="Name" class="form-control" required minlength="2">
+                        </div>
+                    </div>
+                    <div class="form-group row required">
+                        <label class="col-md-3 col-form-label" for="surname">@L("Surname")</label>
+                        <div class="col-md-9">
+                            <input id="surname" type="text" name="surname" class="form-control" required minlength="2">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-3 col-form-label" for="gsmNr">@L("GsmNr")</label>
+                        <div class="col-md-9">
+                            <input type="text" id="gsmNr" name="gsmNr" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                @await Html.PartialAsync("~/Views/Shared/Modals/_ModalFooterWithSaveAndCancel.cshtml")
+            </form>
+        </div>
+    </div>
+</div>

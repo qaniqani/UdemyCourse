@@ -1,0 +1,26 @@
+﻿@using Udemy.Course.Web.Models.Common.Modals
+@model Udemy.Course.Customers.Dto.CustomerDto
+@{
+    Layout = null;
+}
+@await Html.PartialAsync("~/Views/Shared/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(L("EditCustomer")))
+<form name="CustomerEditForm" role="form" class="form-horizontal">
+    <input type="hidden" name="Id" value="@Model.Id" />
+    <div class="modal-body">
+        <div class="form-group row required">
+            <label class="col-md-3 col-form-label" for="name">@L("Name")</label>
+            <div class="col-md-9">
+                <input id="name" class="form-control" type="text" name="Name" value="@Model.Name" required minlength="2">
+            </div>
+        </div>
+        <div class="form-group row required">
+            <label class="col-md-3 col-form-label" for="surname">@L("Surname")</label>
+            <div class="col-md-9">
+                <input id="surname" type="text" class="form-control" name="Surname" value="@Model.Surname" required minlength="2">
+            </div>
+        </div>
+    </div>
+    @await Html.PartialAsync("~/Views/Shared/Modals/_ModalFooterWithSaveAndCancel.cshtml")
+</form>
+
+<script src="~/view-resources/Views/Customer/_EditModal.js" asp-append-version="true"></script>

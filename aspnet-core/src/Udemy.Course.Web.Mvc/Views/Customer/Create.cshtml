@@ -1,0 +1,67 @@
+﻿@using Udemy.Course.Web.Startup
+@{
+    ViewBag.Title = L("Customers");
+    ViewBag.CurrentPageName = PageNames.Customers;
+}
+@section scripts
+{
+    <script src="~/view-resources/Views/Customer/Create.js" asp-append-version="true"></script>
+}
+<section class="content-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                
+            </div>
+            <div class="col-sm-6">
+                <a href="/Customer" class="btn bg-blue float-sm-right">
+                    <i class="fa fa-reply"></i>
+                    @L("List")
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h3>@L("CreateNewCustomer")</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <form name="customerCreateForm" role="form" class="form-horizontal">
+                        <div class="card-body">
+                            <div class="form-group row required">
+                                <label class="col-md-3 col-form-label" id="lblName">@L("Name")</label>
+                                <div class="col-md-9">
+                                    <input id="name" type="text" name="Name" class="form-control" required minlength="2">
+                                </div>
+                            </div>
+                            <div class="form-group row required">
+                                <label class="col-md-3 col-form-label" for="surname">@L("Surname")</label>
+                                <div class="col-md-9">
+                                    <input id="surname" type="text" name="Surname" class="form-control" required minlength="2">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-3 col-form-label" for="gsmNr">@L("GsmNr")</label>
+                                <div class="col-md-9">
+                                    <input type="text" id="gsmNr" name="gsmNr" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            @await Html.PartialAsync("~/Views/Shared/Modals/_ModalFooterWithSaveAndCancel.cshtml")
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

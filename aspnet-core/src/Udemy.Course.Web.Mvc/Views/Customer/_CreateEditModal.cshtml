@@ -1,0 +1,39 @@
+﻿@using Udemy.Course.Web.Models.Common.Modals
+@model Udemy.Course.Web.Models.Customers.CustomerViewModel
+@{
+    Layout = null;
+}
+@await Html.PartialAsync("~/Views/Shared/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(Model.IsEdit ? L("EditCustomer") : L("CreateNewCustomer")))
+<form name="customerCreateOrUpdateForm" role="form" class="form-horizontal">
+    @if (Model.IsEdit)
+    {
+        <input type="hidden" name="Id" value="@Model.Customer.Id"/>
+    }
+    <div class="modal-body">
+        <div class="form-group row required">
+            <label class="col-md-3 col-form-label" id="lblName">@L("Name")</label>
+            <div class="col-md-9">
+                <input id="name" type="text" name="Name" class="form-control" required minlength="2" value="@Model.Customer?.Name">
+            </div>
+        </div>
+        <div class="form-group row required">
+            <label class="col-md-3 col-form-label" for="surname">@L("Surname")</label>
+            <div class="col-md-9">
+                <input id="surname" type="text" name="Surname" class="form-control" required minlength="2" value="@Model.Customer?.Surname">
+            </div>
+        </div>
+        @if (!Model.IsEdit)
+        {
+            <div class="form-group row">
+                <label class="col-md-3 col-form-label" for="gsmNr">@L("GsmNr")</label>
+                <div class="col-md-9">
+                    <input type="text" id="gsmNr" name="gsmNr" class="form-control">
+                </div>
+            </div>
+        }
+    </div>
+    @await Html.PartialAsync("~/Views/Shared/Modals/_ModalFooterWithSaveAndCancel.cshtml")
+</form>
+
+<script src="~/view-resources/Views/Customer/_CreateEditModal.js" asp-append-version="true"></script>
+

@@ -1,0 +1,84 @@
+﻿@using Udemy.Course.Web.Startup
+@{
+    ViewBag.Title = L("Customers");
+    ViewBag.CurrentPageName = PageNames.Customers;
+}
+@section scripts
+{
+    <script src="~/view-resources/Views/Customer/Index.js" asp-append-version="true"></script>
+}
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6">
+                <h1>@L("Customers")</h1>
+            </div>
+            <div class="col-sm-6">
+                <a href="javascript:;" data-toggle="modal" data-target="#CustomerCreateModal" class="btn bg-blue float-sm-right">
+                    <i class="fa fa-plus-square"></i>
+                    @L("Create")
+                </a>
+                
+                <a id="btnCreateOrEdit" href="javascript:;" class="btn bg-black float-sm-right ml-4 mr-4" data-toggle="modal" data-target="#CustomerCreateEditModal">
+                    <i class="fa fa-plus-square"></i>
+                    @L("CreateOrEdit")
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <!--Use for bulk actions-->
+                            </div>
+                            <div class="col-md-6">
+                                @await Html.PartialAsync("~/Views/Customer/Index.AdvancedSearch.cshtml")
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table id="CustomersTable" class="table table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>@L("Name")</th>
+                                        <th>@L("Surname")</th>
+                                        <th style="width: 150px">@L("Actions")</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@* @await Html.PartialAsync("~/Views/Customer/_CreateModal.cshtml") *@
+@* *@
+@* <div class="modal fade" id="CustomerEditModal" tabindex="-1" role="dialog" aria-labelledby="CustomerEditModalLabel" data-backdrop="static"> *@
+@*     <div class="modal-dialog modal-lg" role="document"> *@
+@*         <div class="modal-content"> *@
+@*         </div> *@
+@*     </div> *@
+@* </div> *@
+
+<div class="modal fade" id="CustomerCreateEditModal" tabindex="-1" role="dialog" aria-labelledby="CustomerCreateEditModalLabel" data-backdrop="static">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+        </div>
+    </div>
+</div>
+
+
+
